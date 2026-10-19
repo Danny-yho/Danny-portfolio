@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CosmosDigitalGadgets | Tech Store</title>
+  <link rel="icon" href="images/tech.jpg" />
+  <style>
+    :root{
+      --blue:#2563eb;
+      --dark:#111827;
+      --text:#1f2937;
+      --muted:#475569;
+      --light:#f3f4f6;
+      --white:#ffffff;
+      --line:#e5e7eb;
+      --green:#10b981;
+      --shadow:0 8px 18px rgba(17,24,39,0.08);
+      --page-bg:#f5f7fa;
+      --surface:#ffffff;
+      --surface-soft:#f3f4f6;
+      --surface-alt:#eef4ff;
+      --header-bg:#ffffff;
+      --top-strip-bg:#f1f5f9;
+      --card-bg:#ffffff;
+      --btn-light-bg:#eef2ff;
+      --btn-light-text:#111827;
+      --input-bg:#f9fafb;
+      --heading:#111827;
+      --hero-bg:linear-gradient(180deg, #f8fafc 0%, #eef4ff 100%);
+      --device-box-bg:linear-gradient(135deg, #edf2ff, #eef9ff);
+      --device-box-border:#dfe8ff;
+      --soft-panel:#f8fafc;
+    }
+
+    body.dark-theme{
+      --dark:#f8fafc;
+      --text:#e5e7eb;
+      --muted:#dfe7f5;
+      --light:#0f172a;
+      --white:#0f172a;
+      --line:#1f2937;
+      --green:#34d399;
+      --page-bg:#020817;
+      --surface:#0f172a;
+      --surface-soft:#111827;
+      --surface-alt:#0b1220;
+      --header-bg:#0b1220;
+      --top-strip-bg:#0b1220;
+      --card-bg:#111827;
+      --btn-light-bg:#1e293b;
+      --btn-light-text:#e5e7eb;
+      --input-bg:#0b1220;
+      --heading:#f8fafc;
+      --hero-bg:linear-gradient(180deg, #0b1220 0%, #111827 100%);
+      --device-box-bg:linear-gradient(135deg, #0f172a, #111827);
+      --device-box-border:#1f2937;
+      --soft-panel:#0f172a;
+      --shadow:0 8px 18px rgba(2,6,23,0.6);
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background:var(--page-bg);
+      color:var(--text);
+      line-height:1.5;
+      transition:background 0.25s ease, color 0.25s ease;
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    button, input, textarea{
+      font:inherit;
+    }
+
+    .container{
+      width:min(1180px, calc(100% - 30px));
+      margin:0 auto;
+    }
+
+    .top-strip{
+      background:var(--top-strip-bg);
+      border-bottom:1px solid var(--line);
+      font-size:13px;
+      color:var(--text);
+    }
+
+    .top-strip .container{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      min-height:42px;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .header{
+      background:var(--header-bg);
+      border-bottom:1px solid var(--line);
+      position:sticky;
+      top:0;
+      z-index:20;
+    }
+
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      min-height:72px;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:700;
+      font-size:1.5rem;
+      color:var(--heading);
+      letter-spacing:-0.04em;
+    }
+
+    .brand-mark{
+      width:40px;
+      height:40px;
+      display:grid;
+      place-items:center;
+      border-radius:10px;
+      background:var(--blue);
+      color:#fff;
+      font-size:1.1rem;
+      font-weight:700;
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap:26px;
+      color:var(--text);
+      font-weight:600;
+      font-size:0.95rem;
+    }
+
+    .nav-links a:hover{
+      color:var(--heading);
+    }
+
+    .search-box{
+      flex:1;
+      max-width:420px;
+      background:var(--surface-soft);
+      border:1px solid var(--line);
+      border-radius:999px;
+      display:flex;
+      align-items:center;
+      padding:0 16px;
+      min-height:46px;
+    }
+
+    .search-box input{
+      flex:1;
+      border:none;
+      outline:none;
+      background:transparent;
+      font-size:0.95rem;
+      color:var(--text);
+    }
+
+    .nav-actions{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .icon-btn{
+      width:42px;
+      height:42px;
+      border:1px solid var(--line);
+      background:var(--surface);
+      border-radius:50%;
+      display:grid;
+      place-items:center;
+      font-size:1.1rem;
+      color:var(--dark);
+      cursor:pointer;
+      position:relative;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:none;
+      border-radius:10px;
+      cursor:pointer;
+      transition:0.2s ease;
+      font-weight:700;
+    }
+
+    .btn:hover{
+      transform:translateY(-1px);
+    }
+
+    .btn-primary{
+      background:var(--blue);
+      color:#fff;
+      padding:12px 18px;
+    }
+
+    .btn-light{
+      background:var(--btn-light-bg);
+      color:var(--btn-light-text);
+      border:1px solid var(--line);
+      padding:12px 16px;
+    }
+
+    .hero{
+      background:var(--hero-bg);
+      padding:40px 0 30px;
+    }
+
+    .hero-inner{
+      display:grid;
+      grid-template-columns:1.2fr 0.8fr;
+      gap:26px;
+      align-items:center;
+    }
+
+    .hero-copy{
+      padding:20px 0;
+    }
+
+    .hero-copy .tag{
+      display:inline-block;
+      background:#dbeafe;
+      color:var(--blue);
+      padding:7px 12px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+      margin-bottom:16px;
+    }
+
+    .hero-copy h1{
+      font-size:clamp(2.3rem, 4vw, 4rem);
+      line-height:1.08;
+      letter-spacing:-0.06em;
+      margin-bottom:18px;
+      color:var(--dark);
+    }
+
+    .hero-copy p{
+      font-size:1rem;
+      color:var(--text);
+      max-width:600px;
+      margin-bottom:24px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-bottom:30px;
+    }
+
+    .mini-stats{
+      display:flex;
+      gap:24px;
+      flex-wrap:wrap;
+    }
+
+    .mini-stats div{
+      min-width:120px;
+    }
+
+    .mini-stats strong{
+      display:block;
+      font-size:1.5rem;
+      color:var(--dark);
+      margin-bottom:4px;
+    }
+
+    .mini-stats span{
+      color:var(--text);
+      font-size:0.85rem;
+    }
+
+    .hero-card{
+      background:var(--card-bg);
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+
+    .device-box{
+      background:var(--device-box-bg);
+      border:1px solid var(--device-box-border);
+      border-radius:18px;
+      padding:18px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:340px;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .device-box::before{
+      content:"";
+      position:absolute;
+      width:220px;
+      height:220px;
+      border-radius:50%;
+      background:rgba(37,99,235,0.08);
+      right:-30px;
+      bottom:-50px;
+    }
+
+    .phone-hero{
+      width:190px;
+      height:300px;
+      border-radius:30px;
+      background:
+        linear-gradient(rgba(255,255,255,0.12), rgba(255,255,255,0.02)),
+        url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=700&q=80') center/cover no-repeat;
+      border:5px solid #dfe7f5;
+      position:relative;
+      z-index:1;
+      box-shadow:0 18px 28px rgba(17,24,39,0.14);
+    }
+
+    .phone-hero::before{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:12px;
+      transform:translateX(-50%);
+      width:112px;
+      height:6px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.15);
+    }
+
+    .phone-hero::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      bottom:14px;
+      transform:translateX(-50%);
+      width:50px;
+      height:5px;
+      border-radius:999px;
+      background:rgba(255,255,255,0.15);
+    }
+
+    .float-box{
+      position:absolute;
+      right:18px;
+      bottom:18px;
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:12px 14px;
+      box-shadow:var(--shadow);
+      font-size:0.82rem;
+      color:var(--dark);
+    }
+
+    .float-box strong{
+      display:block;
+      font-size:1.1rem;
+      margin-top:4px;
+    }
+
+    .section{
+      padding:70px 0;
+    }
+
+    .section-header{
+      margin-bottom:26px;
+      display:flex;
+      justify-content:space-between;
+      align-items:end;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .section-header h2{
+      font-size:clamp(1.8rem, 3vw, 2.5rem);
+      color:var(--dark);
+    }
+
+    .section-header a{
+      color:var(--blue);
+      font-weight:700;
+      font-size:0.95rem;
+    }
+
+    .categories{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:18px;
+    }
+
+    .category-card{
+      background:var(--card-bg);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:20px 18px;
+      text-align:center;
+      box-shadow:0 3px 8px rgba(17,24,39,0.02);
+    }
+
+    .category-icon{
+      width:62px;
+      height:62px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background:var(--surface-soft);
+      font-size:2rem;
+      margin:0 auto 12px;
+    }
+
+    .category-card h3{
+      font-size:1.1rem;
+      margin-bottom:6px;
+      color:var(--dark);
+    }
+
+    .category-card p{
+      color:var(--text);
+      font-size:0.9rem;
+    }
+
+    .products-grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:22px;
+    }
+
+    .product-card{
+      background:var(--card-bg);
+      border:1px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 6px 16px rgba(17,24,39,0.04);
+    }
+
+    .product-image{
+      height:220px;
+      background-size:cover;
+      background-position:center;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .product-image::before{
+      content:"";
+      position:absolute;
+      width:150px;
+      height:150px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.25);
+      right:-24px;
+      top:-36px;
+    }
+
+    .product-content{
+      padding:18px 16px 16px;
+    }
+
+    .product-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .label{
+      display:inline-block;
+      background:#eff6ff;
+      color:var(--blue);
+      font-size:11px;
+      font-weight:700;
+      padding:6px 8px;
+      border-radius:999px;
+      letter-spacing:0.06em;
+      text-transform:uppercase;
+    }
+
+    .stock{
+      font-size:0.8rem;
+      color:var(--green);
+      font-weight:700;
+    }
+
+    .product-content h3{
+      font-size:1.2rem;
+      margin-bottom:10px;
+      color:var(--dark);
+    }
+
+    .product-meta{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:16px;
+    }
+
+    .price{
+      font-size:1.6rem;
+      font-weight:800;
+      color:var(--dark);
+    }
+
+    .rating{
+      color:#f59e0b;
+      font-size:0.9rem;
+      font-weight:700;
+    }
+
+    .product-actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .product-actions .btn{
+      flex:1;
+      min-height:42px;
+      font-size:0.9rem;
+    }
+
+    .about{
+      background:var(--card-bg);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .about-image{
+      background:linear-gradient(135deg, #dbeafe, #e5e7eb);
+      min-height:360px;
+      border-radius:18px;
+      position:relative;
+      overflow:hidden;
+      border:1px solid var(--line);
+      background-image:url('images/tech.jpg');
+      background-size:cover;
+      background-position:center;
+    }
+
+    .about-content h2{
+      font-size:clamp(2rem, 3vw, 2.8rem);
+      margin-bottom:16px;
+      color:var(--heading);
+    }
+
+    .about-content p{
+      color:var(--text);
+      margin-bottom:18px;
+    }
+
+    .feature-list{
+      list-style:none;
+      display:grid;
+      gap:12px;
+      margin-top:18px;
+    }
+
+    .feature-list li{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      color:var(--text);
+      font-weight:600;
+    }
+
+    .check{
+      width:22px;
+      height:22px;
+      min-width:22px;
+      display:grid;
+      place-items:center;
+      color:#fff;
+      border-radius:50%;
+      background:var(--green);
+      font-size:0.8rem;
+    }
+
+    .contact-wrap{
+      display:grid;
+      grid-template-columns:0.95fr 1.05fr;
+      gap:22px;
+    }
+
+    .info-card, .form-card{
+      background:var(--card-bg);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:22px;
+      box-shadow:0 6px 14px rgba(17,24,39,0.03);
+    }
+
+    .info-card h3, .form-card h3{
+      font-size:1.5rem;
+      margin-bottom:16px;
+      color:var(--dark);
+    }
+
+    .info-list{
+      display:grid;
+      gap:18px;
+    }
+
+    .info-item{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      color:var(--text);
+    }
+
+    .info-icon{
+      width:42px;
+      height:42px;
+      border-radius:10px;
+      background:#eef2ff;
+      display:grid;
+      place-items:center;
+      color:var(--blue);
+      font-size:1.1rem;
+    }
+
+    .form-card form{
+      display:grid;
+      gap:14px;
+    }
+
+    .field{
+      display:grid;
+      gap:8px;
+    }
+
+    .field label{
+      color:var(--text);
+      font-weight:700;
+      font-size:0.92rem;
+    }
+
+    .field input, .field textarea{
+      width:100%;
+      border:1px solid var(--line);
+      background:var(--input-bg);
+      color:var(--text);
+      border-radius:10px;
+      min-height:46px;
+      padding:0 12px;
+      outline:none;
+    }
+
+    .field textarea{
+      min-height:110px;
+      padding:12px;
+      resize:vertical;
+    }
+
+    .field input:focus, .field textarea:focus{
+      border-color:var(--blue);
+      box-shadow:0 0 0 3px rgba(37,99,235,0.08);
+    }
+
+    footer{
+      background:var(--header-bg);
+      color:var(--text);
+      padding:28px 0;
+      border-top:1px solid var(--line);
+    }
+
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+      flex-wrap:wrap;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+      color:#e2e8f0;
+    }
+
+    .toast{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      background:var(--dark);
+      color:#fff;
+      padding:12px 16px;
+      border-radius:10px;
+      opacity:0;
+      transform:translateY(10px);
+      pointer-events:none;
+      transition:0.25s ease;
+      box-shadow:var(--shadow);
+    }
+
+    .toast.show{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    @media (max-width: 980px){
+      .hero-inner,
+      .about-grid,
+      .contact-wrap{
+        grid-template-columns:1fr;
+      }
+
+      .categories{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
+
+      .products-grid{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px){
+      .nav-links{
+        display:none;
+      }
+
+      .search-box{
+        display:none;
+      }
+
+      .categories,
+      .products-grid{
+        grid-template-columns:1fr;
+      }
+
+      .hero{
+        padding-top:30px;
+      }
+
+      .hero-copy{
+        text-align:center;
+      }
+
+      .hero-actions,
+      .mini-stats{
+        justify-content:center;
+      }
+
+      .footer-inner{
+        flex-direction:column;
+        text-align:center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-strip">
+    <div class="container">
+      <span>Free delivery on orders above ₦250,000</span>
+      <span>New arrivals every week</span>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container nav">
+      <a href="#" class="brand">
+        <span class="brand-mark">C</span>
+        <span>CosmosDigitalGadgets</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="search-box">
+        <span>🔍</span>
+        <input type="text" placeholder="Search devices..." />
+      </div>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">☀️</button>
+        <button class="icon-btn" aria-label="Favorites">♡</button>
+        <button class="icon-btn" aria-label="Cart">
+          🛒
+          <span id="cartCount" style="position:absolute; font-size:10px; background:var(--blue); color:white; border-radius:50%; width:18px; height:18px; display:grid; place-items:center; right:-4px; top:-5px;">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="tag">Best Tech Deals</span>
+          <h1>Smart devices for everyday life.</h1>
+          <p>
+            Shop premium phones, laptops, tablets, smartwatches and accessories with reliable
+            quality and fair prices made for work, learning, and entertainment.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#products" class="btn btn-primary">Shop Now</a>
+            <a href="#about" class="btn btn-light">About Us</a>
+          </div>
+
+          <div class="mini-stats">
+            <div>
+              <strong>25k+</strong>
+              <span>Orders delivered</span>
+            </div>
+            <div>
+              <strong>4.9/5</strong>
+              <span>Customer rating</span>
+            </div>
+            <div>
+              <strong>2-day</strong>
+              <span>Fast delivery</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="device-box">
+            <div class="phone-hero"></div>
+            <div class="float-box">
+              Featured Phone
+              <strong>₦245,000</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Popular categories</h2>
+          <a href="#products">Browse all</a>
+        </div>
+
+        <div class="categories">
+          <article class="category-card">
+            <div class="category-icon">📱</div>
+            <h3>Phones</h3>
+            <p>Latest brands and models</p>
+          </article>
+
+          <article class="category-card">
+            <div class="category-icon">💻</div>
+            <h3>Laptops</h3>
+            <p>Business and gaming ready</p>
+          </article>
+
+          <article class="category-card">
+            <div class="category-icon">📲</div>
+            <h3>Tablets</h3>
+            <p>Portable and powerful</p>
+          </article>
+
+          <article class="category-card">
+            <div class="category-icon">🎧</div>
+            <h3>Accessories</h3>
+            <p>Audio, cases and chargers</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="container">
+        <div class="section-header">
+          <h2>Featured gadgets</h2>
+          <a href="#contact">Need help picking?</a>
+        </div>
+
+        <div class="products-grid">
+          <article class="product-card">
+            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="product-content">
+              <div class="product-top">
+                <span class="label">Phone</span>
+                <span class="stock">In stock</span>
+              </div>
+              <h3>Samsung Galaxy S24</h3>
+              <div class="product-meta">
+                <div class="price">₦245,000</div>
+                <div class="rating">★★★★★ 4.8</div>
+              </div>
+
+              <div class="product-actions">
+                <button class="btn btn-light" data-view="Samsung Galaxy S24">View Product</button>
+                <button class="btn btn-primary add-to-cart" data-product="Samsung Galaxy S24" data-price="245000">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="product-content">
+              <div class="product-top">
+                <span class="label">Laptop</span>
+                <span class="stock">In stock</span>
+              </div>
+              <h3>MacBook Pro 14</h3>
+              <div class="product-meta">
+                <div class="price">₦540,000</div>
+                <div class="rating">★★★★★ 4.7</div>
+              </div>
+
+              <div class="product-actions">
+                <button class="btn btn-light" data-view="MacBook Pro 14">View Product</button>
+                <button class="btn btn-primary add-to-cart" data-product="MacBook Pro 14" data-price="540000">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="product-content">
+              <div class="product-top">
+                <span class="label">Tablet</span>
+                <span class="stock">In stock</span>
+              </div>
+              <h3>iPad Pro 12.9</h3>
+              <div class="product-meta">
+                <div class="price">₦420,000</div>
+                <div class="rating">★★★★★ 4.9</div>
+              </div>
+
+              <div class="product-actions">
+                <button class="btn btn-light" data-view="iPad Pro 12.9">View Product</button>
+                <button class="btn btn-primary add-to-cart" data-product="iPad Pro 12.9" data-price="420000">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="product-content">
+              <div class="product-top">
+                <span class="label">Watch</span>
+                <span class="stock">New</span>
+              </div>
+              <h3>Apple Watch Ultra</h3>
+              <div class="product-meta">
+                <div class="price">₦310,000</div>
+                <div class="rating">★★★★★ 4.8</div>
+              </div>
+
+              <div class="product-actions">
+                <button class="btn btn-light" data-view="Apple Watch Ultra">View Product</button>
+                <button class="btn btn-primary add-to-cart" data-product="Apple Watch Ultra" data-price="310000">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="product-content">
+              <div class="product-top">
+                <span class="label">Audio</span>
+                <span class="stock">Hot</span>
+              </div>
+              <h3>AirPods Pro 2</h3>
+              <div class="product-meta">
+                <div class="price">₦120,000</div>
+                <div class="rating">★★★★★ 4.9</div>
+              </div>
+
+              <div class="product-actions">
+                <button class="btn btn-light" data-view="AirPods Pro 2">View Product</button>
+                <button class="btn btn-primary add-to-cart" data-product="AirPods Pro 2" data-price="120000">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image" style="background-image:url('https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=900&q=80');"></div>
+            <div class="product-content">
+              <div class="product-top">
+                <span class="label">Gaming</span>
+                <span class="stock">In stock</span>
+              </div>
+              <h3>PlayStation 5 Controller</h3>
+              <div class="product-meta">
+                <div class="price">₦78,000</div>
+                <div class="rating">★★★★★ 4.7</div>
+              </div>
+
+              <div class="product-actions">
+                <button class="btn btn-light" data-view="PlayStation 5 Controller">View Product</button>
+                <button class="btn btn-primary add-to-cart" data-product="PlayStation 5 Controller" data-price="78000">Add to Cart</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="container about-grid">
+        <div class="about-image"></div>
+
+        <div class="about-content">
+          <span class="label" style="margin-bottom:12px; display:inline-block;">About us</span>
+          <h2>Simple tech shopping that makes sense.</h2>
+          <p>
+            CosmosDigitalGadgets brings together trusted gadgets, fair prices, and practical support.
+            We help customers choose reliable devices for studying, working, gaming, and everyday life.
+          </p>
+
+          <p>
+            From mobile phones to laptops and accessories, our focus is on value, quality, and customer satisfaction.
+          </p>
+
+          <ul class="feature-list">
+            <li><span class="check">✓</span> Verified products and trusted sellers</li>
+            <li><span class="check">✓</span> Delivery support across major cities</li>
+            <li><span class="check">✓</span> Helpful customer service and easy returns</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <h2>Contact us</h2>
+          <a href="#">Need help? Chat with us</a>
+        </div>
+
+        <div class="contact-wrap">
+          <div class="info-card">
+            <h3>Get in touch</h3>
+
+            <div class="info-list">
+              <div class="info-item">
+                <div class="info-icon">📍</div>
+                <div>
+                  <strong>Address</strong><br />
+                  45 Lekki Phase 1, Lagos
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">📞</div>
+                <div>
+                  <strong>Phone</strong><br />
+                  +234 800 000 0000
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">✉️</div>
+                <div>
+                  <strong>Email</strong><br />
+                  hello@cosmosdigitalgadgets.com
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <h3>Send a message</h3>
+            <form id="contactForm">
+              <div class="field">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Your name" required />
+              </div>
+
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="you@example.com" required />
+              </div>
+
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" placeholder="Tell us what you need..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="brand" style="color:#fff;">
+        <span class="brand-mark">C</span>
+        <span>CosmosDigitalGadgets</span>
+      </div>
+
+      <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <span>© 2026 CosmosDigitalGadgets</span>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const cartCount = document.getElementById("cartCount");
+    const toast = document.getElementById("toast");
+    const themeToggle = document.getElementById("themeToggle");
+    let count = 0;
+
+    const applyTheme = (isDark) => {
+      document.body.classList.toggle("dark-theme", isDark);
+      themeToggle.textContent = isDark ? "☀️" : "🌙";
+      localStorage.setItem("cosmos-theme", isDark ? "dark" : "light");
+    };
+
+    const savedTheme = localStorage.getItem("cosmos-theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    applyTheme(savedTheme ? savedTheme === "dark" : true || prefersDark);
+
+    themeToggle.addEventListener("click", function(){
+      const isDark = !document.body.classList.contains("dark-theme");
+      applyTheme(isDark);
+    });
+
+    document.querySelectorAll(".add-to-cart").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        count++;
+        cartCount.textContent = count;
+
+        const product = btn.dataset.product;
+        toast.textContent = product + " added to cart";
+        toast.classList.add("show");
+
+        setTimeout(function(){
+          toast.classList.remove("show");
+        }, 1800);
+      });
+    });
+
+    document.querySelectorAll("[data-view]").forEach(function(btn){
+      btn.addEventListener("click", function(){
+        const product = btn.dataset.view;
+        toast.textContent = product + " details coming soon";
+        toast.classList.add("show");
+
+        setTimeout(function(){
+          toast.classList.remove("show");
+        }, 1800);
+      });
+    });
+
+    document.getElementById("contactForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      toast.textContent = "Message sent successfully";
+      toast.classList.add("show");
+
+      setTimeout(function(){
+        toast.classList.remove("show");
+      }, 2000);
+
+      this.reset();
+    });
+  </script>
+</body>
+</html>

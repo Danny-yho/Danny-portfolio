@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>My Library</h2>
+  <input id="title" placeholder="Book title">
+  <input id="pages" type="number" placeholder="Pages">
+  <button onclick="addBook()">Add Book</button>
+  <ul id="list"></ul>
+
+<script>
+class Book {
+  constructor(title, pages){
+    this.title = title;
+    this.pages = pages;
+  }
+  info(){ return `${this.title} - ${this.pages} pages`; }
+}
+
+class Library {
+  constructor(){ this.books = []; }
+  add(book){ this.books.push(book); this.show(); }
+  remove(index){ this.books.splice(index,1); this.show(); }
+  show(){
+    const ul = document.getElementById("list");
+    ul.innerHTML = "";
+    this.books.forEach((b, i) => {
+      ul.innerHTML += `<li>${b.info()} <button onclick="lib.remove(${i})">x</button></li>`;
+    });
+  }
+}
+
+const lib = new Library();
+lib.add(new Book("Book A", 120));
+lib.add(new Book("Book B", 150));
+
+function addBook(){
+  const t = document.getElementById("title").value;
+  const p = document.getElementById("pages").value;
+  if(!t || !p) return alert("Fill title and pages");
+  lib.add(new Book(t, Number(p)));
+  document.getElementById("title").value = "";
+  document.getElementById("pages").value = "";
+}
+</script>
+</body>
+</html>
