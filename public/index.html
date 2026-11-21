@@ -1,0 +1,29 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Shop with Vikky | Luxury Fashion Nigeria</title><meta name="description" content="Shop elegant dresses, two-piece sets, Ankara wear and accessories by Shop with Vikky."><meta name="theme-color" content="#3B0B73"><meta property="og:image" content="/images/logo-full.png"><link rel="icon" href="/images/logo-icon.svg"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="/css/styles.css"></head>
+<body><div class="preloader"><img src="/images/loader-shopping-silhouette.png" alt="" aria-hidden="true"></div><a class="skip-link" href="#main">Skip to content</a><div data-header></div>
+<main id="main"><section class="hero container-main"><div aria-hidden="true" id="ribbons"></div><div class="glass p-3 p-md-4"><a class="hero-logo-link" href="/" aria-label="Go to the Shop with Vikky homepage" title="Go to homepage"><img class="hero-logo" src="/images/logo-full.png" alt="Shop with Vikky luxury fashion logo"></a><p class="logo-home-hint"><a href="/">Click the logo to return to the homepage</a></p><p class="script-tagline">Bold style. Beautiful you.</p><p class="hero-copy">Fashion that makes getting dressed feel like you.</p><div class="d-flex justify-content-center flex-wrap gap-3"><a class="btn btn-glossy" href="/shop.html">Find your style</a><a class="btn btn-outline-brand" href="https://wa.me/2347030660694" target="_blank" rel="noopener">Need help? Chat with us</a></div></div></section>
+<section class="trust-strip container-main" aria-label="Shopping benefits"><div><strong>Made for you</strong><span>Fashion selected with care</span></div><div><strong>Delivery across Nigeria</strong><span>Clear fees by state at checkout</span></div><div><strong>Need a hand?</strong><span>Chat with us on WhatsApp</span></div></section>
+<section class="section"><div class="container-main"><div class="section-header"><h2 class="section-title"><span>Shop</span> by category</h2></div><div class="category-grid" id="categories"></div></div></section>
+<section class="section"><div class="container-main"><div class="section-header"><h2 class="section-title"><span>new</span> arrivals</h2></div><div class="product-grid" id="newArrivals"></div></div></section>
+<section class="section"><div class="container-main"><div class="section-header"><h2 class="section-title"><span>loved</span> best sellers</h2></div><div class="product-grid" id="bestSellers"></div></div></section>
+<section class="section"><div class="container-main glass p-4 p-md-5"><div class="section-header"><h2 class="section-title">Why <span>shop</span> with us</h2></div><div class="row g-4 text-center"><div class="col-md-4"><h3 class="h5">Curated for you</h3><p>Statement pieces selected for Nigerian style and confidence.</p></div><div class="col-md-4"><h3 class="h5">Secure ordering</h3><p>Paystack, bank transfer or direct WhatsApp ordering.</p></div><div class="col-md-4"><h3 class="h5">Nationwide delivery</h3><p>Reliable delivery fees across Nigeria's 36 states and FCT.</p></div></div></div></section>
+<section class="section"><div class="container-main"><div class="glass p-4 text-center"><h2 class="h3">Follow the style journey</h2><p>Daily drops and styling inspiration on TikTok.</p><a class="btn btn-glossy" href="https://www.tiktok.com/@shopwithvikky12" target="_blank">@shopwithvikky12</a></div></div></section>
+<section class="section"><div class="container-main glass p-4 text-center"><h2 class="h3">Join the Vikky list</h2><p>Get first access to new drops and private offers.</p><form id="newsletter" class="d-flex gap-2 justify-content-center mx-auto" style="max-width:560px"><input class="form-control" type="email" name="email" required aria-label="Email address" placeholder="you@example.com"><button class="btn btn-glossy">Subscribe</button></form></div></section></main><div data-footer></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script><script src="/js/app.js" defer></script><script>
+document.addEventListener('DOMContentLoaded',async()=>{document.getElementById('ribbons').innerHTML=ribbon('top')+ribbon('bottom');const cats=[
+['Dresses','/images/tiktok-dress.avif'],
+['Tops','/images/tiktok-basic-top.avif'],
+['Skirts','/images/tiktok-yellow-look.avif'],
+['Two-Piece Sets','/images/tiktok-two-piece.avif'],
+['Jumpsuits','/images/tiktok-palazzo.avif'],
+['Bags & Accessories','/images/tiktok-shop-promo.avif'],
+['Ankara/Native Wear','/images/tiktok-two-piece.avif'],
+['Footwear','/images/vikky-platform-shoe.jpg','https://www.tiktok.com/@shopwithvikky12/video/7703251721035746568']
+];
+document.getElementById('categories').innerHTML=cats.map(([n,u,href])=>{
+  const external=Boolean(href);
+  const url=href||'/shop.html?category='+encodeURIComponent(n);
+  return '<a class="category-card" href="'+url+'" '+(external?'target="_blank" rel="noopener noreferrer"':'')+'><img class="category-image" src="'+u+'" alt="" loading="lazy" data-image-fallback><strong>'+n+'</strong><span class="category-action" aria-hidden="true">'+(external?'View on TikTok':'Explore')+'</span></a>';
+}).join('');
+const homeProductCard=p=>productCard(p);
+const ps=await loadProducts();document.getElementById('newArrivals').innerHTML=ps.filter(p=>p.newArrival).slice(0,4).map(homeProductCard).join('');document.getElementById('bestSellers').innerHTML=ps.filter(p=>p.bestSeller&&!p.newArrival).slice(0,4).map(homeProductCard).join('');document.getElementById('newsletter').addEventListener('submit',async e=>{e.preventDefault();try{await api('/newsletter',{method:'POST',body:JSON.stringify({email:e.target.email.value})});toast('Welcome to the Vikky list!');e.target.reset()}catch(err){toast(err.message)}})});
+</script></body></html>
