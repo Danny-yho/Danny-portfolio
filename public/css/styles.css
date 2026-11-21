@@ -19,6 +19,9 @@ img { max-width:100%; } button,input,select,textarea { font:inherit; }
 .skip-link { position:absolute; left:-9999px; } .skip-link:focus { left:1rem; top:1rem; z-index:9999; background:white; padding:.75rem; }
 .announcement { background:var(--purple-950); color:white; text-align:center; padding:.45rem 1rem; font-size:.82rem; }
 .navbar-brand img { height:54px; width:auto; }
+.navbar-brand-wrap { display:flex; flex-direction:column; align-items:center; line-height:1; }
+.navbar-brand { margin:0; padding:0; }
+.nav-logo-hint { display:block; margin-top:-3px; color:var(--purple-900)!important; font-size:.68rem; font-weight:700; text-decoration:underline; text-underline-offset:.18em; }
 .navbar { background:rgba(255,255,255,.78)!important; backdrop-filter:blur(12px); border-bottom:1px solid white; box-shadow:0 4px 20px rgba(59,11,115,.08); }
 .nav-link { color:var(--purple-950)!important; font-weight:600; }
 .nav-link[aria-current="page"] { color:var(--purple-700)!important; text-decoration:underline; text-underline-offset:.35rem; }

@@ -42,7 +42,7 @@ const products = [
   ['Floral Platform Heel', 'floral-platform-heel', 'Footwear', 'A colourful floral platform heel with a confident silhouette.', 11000, 10, '/images/vikky-platform-shoe.jpg', ['36','37','38','39','40','41'], ['Blue','Floral'], 1, 1, 0],
   ['Vikky Red Shoulder Bag', 'vikky-red-shoulder-bag', 'Bags & Accessories', 'A polished red shoulder bag that completes a statement look.', 16500, 12, '/images/vikky-red-bag.jpg', ['One Size'], ['Red'], 1, 1, 0],
   ['Classic Heeled Mule', 'classic-heeled-mule', 'Footwear', 'An elegant heeled mule for dressing up simple outfits.', 26500, 8, '/images/vikky-blue-heel.jpg', ['36','37','38','39','40','41'], ['Blue','Red'], 0, 0, 0],
-  ['Vikky African Skin Top', 'vikky-african-skin-top', 'Tops', 'A relaxed statement top styled for warm, confident everyday looks.', 10500, 20, '/images/vikky-native-set.jpg', ['XS','S','M','L','XL','XXL'], ['White','Black'], 1, 1, 0]
+  ['Vikky African Skin Top', 'vikky-african-skin-top', 'Tops', 'A relaxed statement top styled for warm, confident everyday looks.', 10500, 20, '/images/vikky-african-top.jpg', ['XS','S','M','L','XL','XXL'], ['White','Black'], 1, 1, 0]
 ];
 
 const seed = db.transaction(() => {

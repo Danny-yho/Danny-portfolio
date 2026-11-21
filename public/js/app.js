@@ -13,7 +13,7 @@ const sampleProducts = [
   {id:10,name:'Floral Platform Heel',slug:'floral-platform-heel',price:11000,category:'Footwear',images:['/images/vikky-platform-shoe.jpg'],sizes:['36','37','38','39','40','41'],colors:['Blue','Floral'],stock:10,newArrival:true},
   {id:11,name:'Vikky Red Shoulder Bag',slug:'vikky-red-shoulder-bag',price:16500,category:'Bags & Accessories',images:['/images/vikky-red-bag.jpg'],sizes:['One Size'],colors:['Red'],stock:12,newArrival:true},
   {id:12,name:'Classic Heeled Mule',slug:'classic-heeled-mule',price:26500,category:'Footwear',images:['/images/vikky-blue-heel.jpg'],sizes:['36','37','38','39','40','41'],colors:['Blue','Red'],stock:8,bestSeller:true},
-  {id:13,name:'Vikky African Skin Top',slug:'vikky-african-skin-top',price:10500,category:'Tops',images:['/images/vikky-native-set.jpg'],sizes:['XS','S','M','L','XL','XXL'],colors:['White','Black'],stock:20,newArrival:true}
+  {id:13,name:'Vikky African Skin Top',slug:'vikky-african-skin-top',price:10500,category:'Tops',images:['/images/vikky-african-top.jpg'],sizes:['XS','S','M','L','XL','XXL'],colors:['White','Black'],stock:20,newArrival:true}
 ];
 const cartKey='swv-cart', wishlistKey='swv-wishlist';
 const formatNGN=n=>new Intl.NumberFormat('en-NG',{style:'currency',currency:'NGN',maximumFractionDigits:0}).format(Number(n||0));
@@ -28,7 +28,7 @@ function headerFooter(){
   document.querySelectorAll('[data-header]').forEach(el=>el.innerHTML=`
     <div class="announcement" data-announcement>“Style you love, delivered quickly and reliably.”</div>
     <nav class="navbar navbar-expand-lg sticky-top" aria-label="Main navigation"><div class="container">
-      <a class="navbar-brand" href="/" aria-label="Go to the Shop with Vikky homepage" title="Click to return to homepage"><img src="/images/logo-full.png" alt="Shop with Vikky"></a>
+      <div class="navbar-brand-wrap"><a class="navbar-brand" href="/" aria-label="Go to the Shop with Vikky homepage" title="Click the logo to return to homepage"><img src="/images/logo-full.png" alt="Shop with Vikky"></a><a class="logo-home-hint nav-logo-hint" href="/" title="Return to the homepage">Click logo for Home</a></div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="mainNav"><ul class="navbar-nav ms-auto align-items-lg-center">
       <li class="nav-item"><a class="nav-link" href="/shop.html">Shop</a></li><li class="nav-item"><a class="nav-link" href="/about.html">About</a></li><li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
